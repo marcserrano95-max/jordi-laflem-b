@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jordi LaFlem · DJ y promotor en Valencia</title>
+<style>
+@font-face{font-family:"Disp";src:url(InterDisplay-Black.otf);font-weight:900}
+@font-face{font-family:"Disp";src:url(InterDisplay-Bold.otf);font-weight:700}
+@font-face{font-family:"Txt";src:url(Inter-Regular.otf);font-weight:400}
+@font-face{font-family:"Txt";src:url(Inter-Medium.otf);font-weight:500}
+@font-face{font-family:"Txt";src:url(Inter-SemiBold.otf);font-weight:600}
+:root{--cr:#f4f1ea;--cr2:#e9e4d8;--ink:#111110;--mu:#6d6a62;--or:#ff4d1a;--gr:#22c55e;--ln:#11111018;--e:cubic-bezier(.16,1,.3,1)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{overflow-x:clip;scroll-behavior:smooth}
+body{background:var(--cr);color:var(--ink);font-family:"Txt",system-ui,sans-serif;font-size:17px;line-height:1.55;overflow-x:clip}
+a,button{color:inherit;text-decoration:none;font:inherit;background:none;border:0;cursor:pointer}
+img,video{display:block}
+.d{font-family:"Disp",sans-serif;font-weight:900;letter-spacing:-.045em;line-height:.95}
+.wrap{width:min(1200px,100% - 64px);margin-inline:auto}
+.eb{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--or);display:flex;align-items:center;gap:8px}
+.eb.dot:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--or)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;font-weight:600;font-size:15px;transition:transform .5s var(--e),background .3s,color .3s,box-shadow .3s;will-change:transform}
+.btn.or{background:var(--or);color:#fff;box-shadow:0 10px 30px -10px #ff4d1a99}
+.btn.or:hover{box-shadow:0 16px 40px -10px #ff4d1acc}
+.btn.ol{border:1.5px solid var(--ink)}
+.btn.ol:hover{background:var(--ink);color:var(--cr)}
+.btn.dk{background:var(--ink);color:var(--cr)}
+.btn .ar{display:inline-block;transition:transform .4s var(--e)}
+.btn:hover .ar{transform:translateX(4px)}
+
+/* NAV pill */
+nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;width:min(1200px,100% - 28px);display:flex;align-items:center;justify-content:space-between;padding:10px 10px 10px 22px;border-radius:999px;background:#e9e4d8d9;backdrop-filter:blur(14px);border:1px solid #11111010;transition:box-shadow .4s,background .4s}
+nav.sc{box-shadow:0 14px 40px -18px #0004;background:#f4f1eaee}
+.lg{display:flex;align-items:center;gap:14px;font-family:"Disp";font-weight:900;font-size:22px;letter-spacing:-.04em}
+.lg i{width:10px;height:10px;border-radius:50%;background:var(--or);display:inline-block;margin-right:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;font:600 11px "Txt";letter-spacing:.12em;text-transform:uppercase;background:#fff;padding:7px 12px;border-radius:999px}
+.chip:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gr);box-shadow:0 0 0 0 #22c55e88;animation:pu 2s infinite}
+@keyframes pu{70%{box-shadow:0 0 0 7px #22c55e00}100%{box-shadow:0 0 0 0 #22c55e00}}
+.nl{display:flex;gap:30px;font-size:14px;font-weight:500}
+.nl a{position:relative}.nl a:after{content:"";position:absolute;left:0;bottom:-3px;height:1.5px;width:100%;background:var(--or);transform:scaleX(0);transition:transform .4s var(--e);transform-origin:left}.nl a:hover:after{transform:none}
+nav .btn{padding:12px 20px}
+
+/* HERO */
+.hero{padding:150px 0 40px}
+.hero .top{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:end}
+.hero h1{font-size:clamp(64px,9.4vw,138px);margin-top:20px}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:block;transform:translateY(110%);transition:transform 1.1s var(--e)}
+.hero.in h1 .ln>span{transform:none}
+.hero h1 .ln:nth-child(2)>span{transition-delay:.1s}.hero h1 .ln:nth-child(3)>span{transition-delay:.2s}
+.hero h1 em{font-style:normal;color:var(--or)}
+.hero .side p{font-size:18px;color:#3b3934;max-width:400px}
+.hero .cta{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.fade{opacity:0;transform:translateY(24px);transition:1s var(--e) .45s}
+.hero.in .fade{opacity:1;transform:none}
+.vcard{position:relative;margin-top:56px;height:min(68vh,640px);border-radius:28px;overflow:hidden;background:#000;transform:scale(.94);transition:transform 1.3s var(--e) .3s,border-radius 1.3s}
+.hero.in .vcard{transform:none}
+.vcard video{width:100%;height:100%;object-fit:cover;transform:scale(1.04)}
+.vcard:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000a 0%,transparent 40%)}
+.vcard .ov{position:absolute;left:28px;right:28px;bottom:24px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;color:#fff;gap:20px}
+.stats{display:flex;gap:40px}
+.stats b{display:block;font-family:"Disp";font-weight:900;font-size:40px;letter-spacing:-.04em;line-height:1}
+.stats span{font-size:13px;opacity:.8}
+.play{display:flex;align-items:center;gap:12px;background:#ffffffe6;color:var(--ink);padding:10px 18px 10px 10px;border-radius:999px;font-weight:600;font-size:14px;transition:transform .4s var(--e)}
+.play:hover{transform:scale(1.05)}
+.play .pi{width:38px;height:38px;border-radius:50%;background:var(--or);display:grid;place-items:center;color:#fff}
+.play .eq{display:flex;gap:2px;align-items:flex-end;height:14px;margin-left:4px}
+.play .eq i{width:3px;height:3px;background:var(--or);border-radius:2px;transition:height .08s}
+.tag{position:absolute;top:22px;left:22px;z-index:2}
+.tag .chip{background:#ffffffe6}
+
+/* MARQUEE */
+.mq{background:var(--ink);color:var(--cr);overflow:hidden;white-space:nowrap;margin-top:60px}
+.mq .t{display:inline-flex;padding:26px 0;font-family:"Disp";font-weight:900;font-size:40px;letter-spacing:-.03em;animation:mq 32s linear infinite}
+.mq span{margin:0 18px}.mq em{font-style:normal;color:var(--or);margin:0 4px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:130px 0}
+.hd{display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:end;margin-bottom:56px}
+.hd h2{font-size:clamp(44px,5.4vw,78px);margin-top:16px}
+.hd p{color:var(--mu);max-width:380px;justify-self:end}
+.rv{opacity:0;transform:translateY(40px);transition:opacity 1s var(--e),transform 1s var(--e)}
+.rv.in{opacity:1;transform:none}.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
+
+/* PROJECTS cards */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.cd{background:var(--cr2);border-radius:22px;padding:8px;transition:transform .6s var(--e),box-shadow .6s;position:relative}
+.cd:hover{transform:translateY(-8px);box-shadow:0 30px 60px -30px #0005}
+.cd .im{position:relative;height:300px;border-radius:16px;overflow:hidden;background:#ccc}
+.cd .im img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--e)}
+.cd:hover .im img{transform:scale(1.08)}
+.cd .im video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .5s}
+.cd:hover .im video{opacity:1}
+.cd .st{position:absolute;top:12px;left:12px;font:600 10px "Txt";letter-spacing:.14em;text-transform:uppercase;background:#fff;padding:6px 10px;border-radius:999px;display:flex;gap:6px;align-items:center}
+.cd .st:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--c,var(--gr))}
+.cd .bd{padding:18px 14px 14px}
+.cd h3{font-family:"Disp";font-weight:900;font-size:26px;letter-spacing:-.03em;line-height:1}
+.cd p{color:var(--mu);font-size:15px;margin-top:8px}
+.cd .go{position:absolute;right:20px;bottom:20px;width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--cr);display:grid;place-items:center;transform:scale(0) rotate(-45deg);transition:transform .5s var(--e)}
+.cd:hover .go{transform:scale(1) rotate(0)}
+
+/* DARK configurator */
+.dark{background:var(--ink);color:var(--cr)}
+.dark .hd p{color:#a9a49a}
+.cfg{background:var(--cr2);color:var(--ink);border-radius:26px;padding:22px;display:grid;grid-template-columns:1fr 1fr 1.6fr auto;gap:18px;align-items:center}
+.cfg label{display:block;font-size:12px;font-weight:600;color:var(--mu);margin-bottom:8px}
+.seg{display:flex;background:#fff;border-radius:14px;padding:4px;gap:4px}
+.seg button{flex:1;padding:12px 10px;border-radius:10px;font-size:14px;font-weight:600;color:var(--mu);transition:.3s;white-space:nowrap}
+.seg button.on{background:var(--ink);color:var(--cr)}
+.res .k{font-size:12px;font-weight:600;color:var(--or)}
+.res h4{font-family:"Disp";font-weight:900;font-size:30px;letter-spacing:-.03em;line-height:1.05;transition:opacity .25s}
+.res p{font-size:14px;color:var(--mu);margin-top:4px;transition:opacity .25s}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.pl{background:#1b1b19;border:1px solid #ffffff12;border-radius:24px;padding:30px;display:flex;flex-direction:column;transition:transform .5s var(--e),border-color .4s,background .4s}
+.pl.hl{background:var(--cr);color:var(--ink);transform:translateY(-10px)}
+.pl:hover{border-color:var(--or)}
+.pl .tp{display:flex;justify-content:space-between;align-items:center}
+.pl .tp span{font-weight:600}
+.pl .bd2{font:600 10px "Txt";letter-spacing:.14em;text-transform:uppercase;background:var(--or);color:#fff;padding:5px 9px;border-radius:999px}
+.pl h3{font-family:"Disp";font-weight:900;font-size:44px;letter-spacing:-.04em;margin:16px 0 6px;line-height:1}
+.pl>p{color:#a9a49a;font-size:15px}.pl.hl>p{color:var(--mu)}
+.pl ul{list-style:none;margin:24px 0 28px;display:grid;gap:12px;font-size:15px}
+.pl li{display:flex;gap:10px}.pl li:before{content:"✓";color:var(--or);font-weight:700}
+.pl .btn{margin-top:auto;justify-content:center}
+.pl .btn.ghost{border:1.5px solid #ffffff40}.pl .btn.ghost:hover{background:var(--cr);color:var(--ink)}
+
+/* AGENDA */
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.feat{grid-row:span 2;position:relative;border-radius:26px;overflow:hidden;min-height:560px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:30px}
+.feat img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--e)}
+.feat:hover img{transform:scale(1.05)}
+.feat:before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#000000f0 15%,#0006 55%,#0003);z-index:1}
+.feat>*{position:relative;z-index:2}
+.feat .dt{font-family:"Disp";font-weight:900;font-size:120px;letter-spacing:-.05em;line-height:.85;color:var(--or)}
+.feat h3{font-family:"Disp";font-weight:900;font-size:40px;letter-spacing:-.03em;line-height:1;margin:10px 0 14px}
+.cdn{display:flex;gap:10px;margin-top:18px}
+.cdn div{background:#ffffff1f;backdrop-filter:blur(8px);border-radius:14px;padding:12px 14px;min-width:74px;text-align:center}
+.cdn b{display:block;font-family:"Disp";font-weight:900;font-size:30px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.cdn span{font-size:11px;opacity:.75}
+.ev{background:var(--cr2);border-radius:26px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;transition:background .4s,transform .5s var(--e)}
+.ev:hover{background:#fff;transform:translateY(-4px)}
+.ev .w{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--or)}
+.ev h3{font-family:"Disp";font-weight:900;font-size:36px;letter-spacing:-.03em;line-height:1;margin:12px 0 8px}
+.ev p{color:var(--mu);font-size:15px}
+.ev .f{display:flex;justify-content:space-between;align-items:center;margin-top:30px;font-weight:600;font-size:14px}
+.ev .f i{width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--cr);display:grid;place-items:center;font-style:normal;transition:transform .5s var(--e)}
+.ev:hover .f i{transform:rotate(-45deg);background:var(--or)}
+
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s}
+.sp{border-top:2px solid var(--ink);padding-top:22px;position:relative}
+.sp:before{content:"";position:absolute;top:-2px;left:0;height:2px;width:0;background:var(--or);transition:width 1.4s var(--e) .3s}
+.sp.in:before{width:100%}
+.sp .n{font-family:"Disp";font-weight:900;font-size:64px;letter-spacing:-.05em;color:var(--or);line-height:1}
+.sp h3{font-family:"Disp";font-weight:900;font-size:28px;letter-spacing:-.03em;margin:14px 0 8px}
+.sp p{color:var(--mu)}
+
+/* GALLERY draggable */
+.gtrack{display:flex;gap:14px;overflow-x:auto;padding:0 max(32px,calc((100% - 1200px)/2)) 10px;scrollbar-width:none;cursor:grab;user-select:none}
+.gtrack::-webkit-scrollbar{display:none}
+.gtrack.dr{cursor:grabbing}
+.gi{flex:0 0 auto;height:460px;border-radius:22px;overflow:hidden;position:relative}
+.gi img,.gi video{height:100%;width:100%;object-fit:cover;pointer-events:none;transition:transform 1s var(--e)}
+.gi:hover img{transform:scale(1.05)}
+.gi.w1{width:360px}.gi.w2{width:560px}.gi.w3{width:300px}
+.gi .lb{position:absolute;left:14px;bottom:14px;background:#fff;font:600 11px "Txt";letter-spacing:.1em;text-transform:uppercase;padding:7px 11px;border-radius:999px}
+.gctl{display:flex;justify-content:space-between;align-items:center;margin-top:26px}
+.gctl .bt{display:flex;gap:8px}
+.gctl .bt button{width:52px;height:52px;border-radius:50%;border:1.5px solid var(--ink);font-size:18px;transition:.3s}
+.gctl .bt button:hover{background:var(--ink);color:var(--cr)}
+.gbar{flex:1;max-width:300px;height:3px;border-radius:3px;background:var(--ln);position:relative;overflow:hidden}
+.gbar i{position:absolute;left:0;top:0;height:100%;background:var(--or);width:20%}
+.lbx{position:fixed;inset:0;z-index:100;background:#111110f2;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.lbx.on{opacity:1;pointer-events:auto}
+.lbx img{max-width:86vw;max-height:82vh;border-radius:18px;transform:scale(.94);transition:transform .6s var(--e),opacity .2s}
+.lbx.on img{transform:none}
+.lbx .x{position:absolute;top:24px;right:24px;color:#fff;background:#ffffff1a;padding:10px 16px;border-radius:999px;font-weight:600}
+.lbx .nv{position:absolute;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;background:#fff;font-size:20px}
+.lbx .pv{left:24px}.lbx .nx{right:24px}
+
+/* COLECTIVOS */
+.cols{overflow:hidden;white-space:nowrap;border-block:1px solid var(--ln);margin-top:10px}
+.cols .t{display:inline-flex;padding:22px 0;animation:mq 40s linear infinite reverse}
+.cols span{font-family:"Disp";font-weight:700;font-size:28px;letter-spacing:-.02em;margin:0 26px;color:var(--mu);transition:color .3s}
+.cols span:hover{color:var(--or)}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px}
+.qa{border-bottom:1px solid var(--ln)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;padding:26px 0;text-align:left;font-family:"Disp";font-weight:700;font-size:23px;letter-spacing:-.02em}
+.qa button i{width:34px;height:34px;border-radius:50%;background:var(--cr2);display:grid;place-items:center;font-style:normal;transition:transform .5s var(--e),background .3s;flex:none}
+.qa.on button i{transform:rotate(45deg);background:var(--or);color:#fff}
+.qa .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s var(--e)}
+.qa.on .a{grid-template-rows:1fr}
+.qa .a>div{overflow:hidden}
+.qa .a p{color:var(--mu);padding-bottom:24px;max-width:600px}
+.cta-box{background:var(--or);color:#fff;border-radius:28px;padding:36px;position:sticky;top:110px}
+.cta-box h3{font-family:"Disp";font-weight:900;font-size:44px;letter-spacing:-.04em;line-height:1}
+.cta-box p{margin:14px 0 24px;opacity:.9}
+.cta-box .btn{background:#fff;color:var(--ink)}
+
+/* CONTACT + FOOTER */
+footer{background:var(--ink);color:var(--cr);padding:100px 0 34px}
+.big{font-family:"Disp";font-weight:900;font-size:clamp(70px,13vw,200px);letter-spacing:-.06em;line-height:.85}
+.big em{font-style:normal;color:var(--or)}
+.fgrid{display:grid;grid-template-columns:1.4fr .6fr .8fr;gap:40px;margin-top:70px;padding-top:40px;border-top:1px solid #ffffff1a}
+.fgrid h5{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--or);margin-bottom:14px}
+.fgrid a,.fgrid p{display:block;color:#bdb8ad;margin-bottom:8px;font-size:15px}
+.fgrid a:hover{color:#fff}
+.fb{display:flex;justify-content:space-between;margin-top:60px;padding-top:24px;border-top:1px solid #ffffff1a;font-size:13px;color:#8d887e}
+
+@media (max-width:860px){
+ body{font-size:16px}.wrap{width:calc(100% - 40px)}
+ nav{padding:8px 8px 8px 16px}.nl,.lg .chip{display:none}nav .btn{padding:10px 16px;font-size:13px}
+ .hero{padding-top:120px}.hero .top{grid-template-columns:1fr;gap:20px}.hero h1{font-size:16vw}
+ .vcard{height:62vh;margin-top:34px;border-radius:22px}
+ .vcard .ov{flex-direction:column;align-items:flex-start;left:18px;right:18px}.stats{gap:22px}.stats b{font-size:30px}
+ .mq .t{font-size:26px;padding:18px 0}
+ section{padding:90px 0}
+ .hd{grid-template-columns:1fr;gap:16px;margin-bottom:36px}.hd p{justify-self:start}.hd h2{font-size:11vw}
+ .cards{grid-template-columns:1fr 1fr}.cd .im{height:200px}.cd h3{font-size:21px}
+ .cfg{grid-template-columns:1fr}.plans{grid-template-columns:1fr}.pl.hl{transform:none}
+ .ag{grid-template-columns:1fr}.cdn{gap:6px}.cdn div{min-width:0;flex:1;padding:10px 4px}.cdn b{font-size:24px}.feat{padding:22px}.feat h3{font-size:32px}.feat{min-height:500px}.feat .dt{font-size:90px}
+ .steps{grid-template-columns:1fr;gap:34px}
+ .gi{height:340px}.gi.w1{width:260px}.gi.w2{width:320px}.gi.w3{width:220px}
+ .faq{grid-template-columns:1fr;gap:30px}.cta-box{position:static}
+ .fgrid{grid-template-columns:1fr}.fb{flex-direction:column;gap:8px}
+}
+@media (max-width:520px){.cards{grid-template-columns:1fr}.cd .im{height:240px}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+ <a class="lg" href="#top"><span><i></i>LaFlem</span><span class="chip">Bookings 2027</span></a>
+ <div class="nl"><a href="#proyectos">Proyectos</a><a href="#booking">Booking</a><a href="#agenda">Agenda</a><a href="#galeria">Galería</a><a href="#faq">Socios</a></div>
+ <a class="btn dk" href="#contacto">Escríbeme <span class="ar">→</span></a>
+</nav>
+
+<header class="hero" id="top">
+ <div class="wrap">
+  <div class="top">
+   <div>
+    <div class="eb dot fade" style="transition-delay:.1s">DJ y promotor — Valencia · Since 2005</div>
+    <h1 class="d"><span class="ln"><span>La noche</span></span><span class="ln"><span>valenciana,</span></span><span class="ln"><span><em>bien</em> mezclada.</span></span></h1>
+   </div>
+   <div class="side fade">
+    <p>Breaks, drum &amp; bass, techno y psy. Más de 20 años creando fiestas donde la pista no se vacía: Amagatall d'Hilari, Funky Food y lo que viene.</p>
+    <div class="cta"><a class="btn or" href="#booking">Contratar a Jordi <span class="ar">→</span></a><a class="btn ol" href="#proyectos">Ver proyectos</a></div>
+   </div>
+  </div>
+  <div class="vcard" id="vcard">
+   <video id="vid" src="hero2.mp4" poster="v0.jpg" autoplay muted loop playsinline></video>
+   <div class="tag"><span class="chip">En vivo · Amagatall</span></div>
+   <div class="ov">
+    <div class="stats"><div><b data-n="20">0</b><span>años de noche</span></div><div><b data-n="4">0</b><span>proyectos</span></div><div><b data-n="12" data-s="h">0</b><span>non-stop</span></div></div>
+    <button class="play" id="snd"><span class="pi" id="pi">▶</span><span id="sl">Escuchar el sonido</span><span class="eq" id="eq"><i></i><i></i><i></i><i></i><i></i></span></button>
+   </div>
+  </div>
+ </div>
+</header>
+
+<div class="mq"><div class="t">
+ <span>Breaks</span><em>✦</em><span>Drum &amp; Bass</span><em>✦</em><span>Hardtechno</span><em>✦</em><span>Psytrance</span><em>✦</em><span>Funk</span><em>✦</em><span>Bakalao</span><em>✦</em>
+ <span>Breaks</span><em>✦</em><span>Drum &amp; Bass</span><em>✦</em><span>Hardtechno</span><em>✦</em><span>Psytrance</span><em>✦</em><span>Funk</span><em>✦</em><span>Bakalao</span><em>✦</em>
+</div></div>
+
+<section id="proyectos">
+ <div class="wrap">
+  <div class="hd"><div><div class="eb rv">01 — Proyectos</div><h2 class="d rv d1">Cuatro fiestas, una misma forma de vivir la noche.</h2></div>
+   <p class="rv d2">Pasa el ratón por cada proyecto. Cada uno tiene su sonido y su público; todos tienen comunidad y cero prisa por irse a casa.</p></div>
+  <div class="cards">
+   <a class="cd rv" href="#agenda"><div class="im"><img src="am_sept.jpg" alt=""><video src="vive.mp4" muted loop playsinline preload="none"></video><span class="st">En activo</span></div><div class="bd"><h3>Amagatall d'Hilari</h3><p>Club de socios con dos rooms, graffiti y +12 h de fiesta.</p></div><span class="go">→</span></a>
+   <a class="cd rv d1" href="#agenda" style="--c:#ff9a2e"><div class="im"><img src="ff_nov.jpg" alt=""><span class="st">Cada semana</span></div><div class="bd"><h3>Funky Food</h3><p>Jueves y viernes, entrada gratis, C/ Calixto III.</p></div><span class="go">→</span></a>
+   <a class="cd rv d2" href="#agenda" style="--c:var(--or)"><div class="im"><img src="v7.jpg" alt=""><span class="st">Próximamente</span></div><div class="bd"><h3>Dragon Bass</h3><p>La nueva serie de fiestas de bajos. Muy pronto.</p></div><span class="go">→</span></a>
+   <a class="cd rv d3" href="#galeria" style="--c:#999"><div class="im"><img src="v5.jpg" alt=""><span class="st">Archivo</span></div><div class="bd"><h3>Breaking Bass</h3><p>Donde empezó todo: breaks y bass en Valencia.</p></div><span class="go">→</span></a>
+  </div>
+ </div>
+</section>
+
+<section class="dark" id="booking">
+ <div class="wrap">
+  <div class="hd"><div><div class="eb rv">02 — Booking</div><h2 class="d rv d1">Llévate a Jordi a tu sala, festival o evento.</h2></div>
+   <p class="rv d2">Elige qué necesitas y te decimos el formato que mejor encaja. Presupuesto en menos de 24 h.</p></div>
+  <div class="cfg rv">
+   <div><label>¿Qué necesitas?</label><div class="seg" id="sg1"><button class="on" data-v="dj">DJ set</button><button data-v="fiesta">Fiesta</button><button data-v="colab">Colectivo</button></div></div>
+   <div><label>Duración</label><div class="seg" id="sg2"><button class="on" data-v="2">2 h</button><button data-v="4">4 h</button><button data-v="8">8 h+</button></div></div>
+   <div class="res"><div class="k">Te recomendamos</div><h4 id="rt">DJ Set · Club</h4><p id="rd">Sesión de 2 h de breaks y DnB. Ideal para salas y line-ups.</p></div>
+   <a class="btn or" href="#contacto">Pedir presupuesto <span class="ar">→</span></a>
+  </div>
+  <div class="plans">
+   <div class="pl rv"><div class="tp"><span>DJ Set</span></div><h3>Club</h3><p>Para salas, line-ups y warm-ups.</p><ul><li>Sesión de 1 a 3 h</li><li>Breaks, DnB, techno o psy</li><li>Rider técnico incluido</li></ul><a class="btn ghost" href="#contacto">Consultar fecha</a></div>
+   <div class="pl hl rv d1"><div class="tp"><span>Fiesta completa</span><span class="bd2">Más pedido</span></div><h3>Producción</h3><p>Concepto, line-up, cartelería y noche entera.</p><ul><li>Todo lo de DJ Set</li><li>Line-up y colectivos invitados</li><li>Comunicación y cartel</li><li>Hasta 12 h non-stop</li></ul><a class="btn or" href="#contacto">Montar mi fiesta <span class="ar">→</span></a></div>
+   <div class="pl rv d2"><div class="tp"><span>Colaboración</span></div><h3>Colectivos</h3><p>Trae tu colectivo a una room de Amagatall.</p><ul><li>Room propia (Black Box u Overdrive)</li><li>Difusión en la comunidad</li><li>Fechas todo el año</li></ul><a class="btn ghost" href="#contacto">Proponer colectivo</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="agenda">
+ <div class="wrap">
+  <div class="hd"><div><div class="eb rv">03 — Agenda</div><h2 class="d rv d1">Dónde encontrarle.</h2></div><p class="rv d2">Fechas confirmadas y noches fijas. Para entradas de socio y listas, escribe directamente.</p></div>
+  <div class="ag">
+   <div class="feat rv"><img src="ph_hug.jpg" alt="" style="object-position:center 20%"><span class="chip" style="align-self:flex-start;margin-bottom:auto;color:var(--ink)">Nochevieja · Amagatall</span><div class="dt">31.12</div><h3>Despedimos el año a dos rooms.</h3><p style="opacity:.85">Black Box: APA (hardtechno) · Overdrive: Residents &amp; Friends by Amagatall DnB</p>
+    <div class="cdn" id="cdn"><div><b>00</b><span>días</span></div><div><b>00</b><span>horas</span></div><div><b>00</b><span>min</span></div><div><b>00</b><span>seg</span></div></div></div>
+   <a class="ev rv d1" href="#contacto"><div><div class="w">Cada jueves y viernes</div><h3>Funky Food</h3><p>C/ Calixto III, 17 · Valencia · Entrada gratuita · 23:30 — 03:30</p></div><div class="f"><span>Psy · DnB · Bakalao · Funk</span><i>→</i></div></a>
+   <a class="ev rv d2" href="#contacto"><div><div class="w">Próximamente · 2027</div><h3>Dragon Bass Parties</h3><p>Nueva serie de fiestas de bajos. Line-up por anunciar.</p></div><div class="f"><span>Avísame cuando salga</span><i>→</i></div></a>
+  </div>
+ </div>
+</section>
+
+<section style="padding-top:20px">
+ <div class="wrap"><div class="hd"><div><div class="eb rv">04 — Cómo funciona</div><h2 class="d rv d1">Del primer mensaje al último tema.</h2></div></div>
+  <div class="steps">
+   <div class="sp rv"><div class="n">01</div><h3>Cuéntame tu idea</h3><p>Fecha, sala y tipo de noche. Te respondo con propuesta y presupuesto en 24 h.</p></div>
+   <div class="sp rv d1"><div class="n">02</div><h3>Montamos el plan</h3><p>Sonido, line-up, horarios y cartel. Todo cerrado antes de la fecha.</p></div>
+   <div class="sp rv d2"><div class="n">03</div><h3>A bailar</h3><p>Llego pronto, pruebo sonido y leo la pista. Tú solo disfrutas.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="galeria" style="padding-top:40px">
+ <div class="wrap"><div class="hd"><div><div class="eb rv">05 — Galería</div><h2 class="d rv d1">La gente es la fiesta.</h2></div><p class="rv d2">Arrastra para ver más. Toca una foto para abrirla.</p></div></div>
+ <div class="gtrack" id="gt">
+  <div class="gi w2"><video src="vive.mp4" autoplay muted loop playsinline></video><span class="lb">● En vivo</span></div>
+  <div class="gi w1"><img src="ph_toast.jpg" alt=""><span class="lb">Cumpleaños</span></div>
+  <div class="gi w2"><img src="ph_group.jpg" alt=""><span class="lb">Funky Food</span></div>
+  <div class="gi w3"><img src="ph_hug.jpg" alt=""><span class="lb">Black Box</span></div>
+  <div class="gi w1"><img src="am_prog.jpg" alt=""><span class="lb">Temporada 26</span></div>
+  <div class="gi w2"><img src="ph_trike.jpg" alt=""><span class="lb">Chill zone</span></div>
+  <div class="gi w3"><img src="ph_dance.jpg" alt=""><span class="lb">Pista</span></div>
+  <div class="gi w1"><img src="ff_sep.jpg" alt=""><span class="lb">De bakala a bakala</span></div>
+ </div>
+ <div class="wrap gctl"><div class="gbar"><i id="gb"></i></div><div class="bt"><button id="gp">←</button><button id="gn">→</button></div></div>
+ <div class="cols"><div class="t">
+  <span>Soroll</span><span>Hard Expresión</span><span>Alpo11</span><span>Zerosound</span><span>Cosmic Unity</span><span>Spartan Rave</span><span>Ekualice</span><span>MassOver</span><span>Anguila Elektronika</span><span>Techno Arts</span>
+  <span>Soroll</span><span>Hard Expresión</span><span>Alpo11</span><span>Zerosound</span><span>Cosmic Unity</span><span>Spartan Rave</span><span>Ekualice</span><span>MassOver</span><span>Anguila Elektronika</span><span>Techno Arts</span>
+ </div></div>
+</section>
+
+<section id="faq">
+ <div class="wrap faq">
+  <div><div class="eb rv">06 — Socios Amagatall</div><h2 class="d rv d1" style="font-size:clamp(44px,5vw,72px);margin:16px 0 30px">Preguntas frecuentes.</h2>
+   <div class="cta-box rv d2"><h3>¿Te vienes a la próxima?</h3><p>Hazte socio gratis y entra a todas las fiestas de Amagatall a precio de socio.</p><a class="btn" href="#contacto">Quiero ser socio <span class="ar">→</span></a></div></div>
+  <div>
+   <div class="qa on rv"><button>¿Cómo me hago socio?<i>+</i></button><div class="a"><div><p>Es gratis. Te apuntas desde el enlace de la bio de @amagatall_d_hilari y ya tienes precio de socio en todas las fiestas.</p></div></div></div>
+   <div class="qa rv"><button>¿Cuánto cuesta la entrada?<i>+</i></button><div class="a"><div><p>15 € para socios y 20 € para no socios. Funky Food es siempre gratis.</p></div></div></div>
+   <div class="qa rv"><button>¿Qué hay en cada room?<i>+</i></button><div class="a"><div><p>Black Box: techno, tekno y hardtechno. Overdrive: drum &amp; bass, psytrance y hardtek. Cada fecha con colectivos invitados.</p></div></div></div>
+   <div class="qa rv"><button>¿Abrís todo el año?<i>+</i></button><div class="a"><div><p>Sí. Amagatall no tiene temporadas de cierre: hay programación todo el año para los socios.</p></div></div></div>
+   <div class="qa rv"><button>¿Puedo traer mi colectivo?<i>+</i></button><div class="a"><div><p>Claro. Escribe con tu propuesta y buscamos una fecha y una room para vosotros.</p></div></div></div>
+  </div>
+ </div>
+</section>
+
+<footer id="contacto">
+ <div class="wrap">
+  <div class="eb">07 — Contacto</div>
+  <div class="big" style="margin-top:18px">Hablemos<em>.</em></div>
+  <div style="display:flex;gap:10px;margin-top:34px;flex-wrap:wrap"><a class="btn or" href="#">WhatsApp de booking <span class="ar">→</span></a><a class="btn" style="border:1.5px solid #ffffff40" href="https://instagram.com/jordilaflem">@jordilaflem</a></div>
+  <div class="fgrid">
+   <div><h5 style="color:var(--cr);font-family:'Disp';font-weight:900;font-size:24px;letter-spacing:-.03em;text-transform:none">LaFlem</h5><p>DJ y promotor en Valencia. Levantando la noche desde 2005.</p></div>
+   <div><h5>Páginas</h5><a href="#proyectos">Proyectos</a><a href="#booking">Booking</a><a href="#agenda">Agenda</a><a href="#galeria">Galería</a></div>
+   <div><h5>Contacto</h5><a href="#">booking@jordilaflem.com</a><a href="https://instagram.com/jordilaflem">Instagram</a><a href="https://instagram.com/amagatall_d_hilari">Amagatall d'Hilari</a></div>
+  </div>
+  <div class="fb"><span>© 2026 Jordi LaFlem. Todos los derechos reservados.</span><span>Diseño web · Studio Horta</span></div>
+ </div>
+</footer>
+
+<div class="lbx" id="lbx"><button class="x" id="lx">Cerrar ✕</button><button class="nv pv" id="lp">←</button><img id="li" alt=""><button class="nv nx" id="ln">→</button></div>
+
+<script>
+// intro
+addEventListener('load',()=>setTimeout(()=>document.querySelector('.hero').classList.add('in'),100));
+setTimeout(()=>document.querySelector('.hero').classList.add('in'),900);
+addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('sc',scrollY>40),{passive:true});
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+// counters
+setTimeout(()=>document.querySelectorAll('[data-n]').forEach(n=>{const to=+n.dataset.n,s=n.dataset.s||'',st=performance.now();(function f(t){const k=Math.min(1,(t-st)/1800);n.textContent=Math.round(to*(1-Math.pow(1-k,3)))+(to===20?'+':'')+s;if(k<1)requestAnimationFrame(f)})(st)}),1200);
+// magnetic
+document.querySelectorAll('.btn').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.15}px,${(e.clientY-r.top-r.height/2)*.25}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')});
+// video card scroll scale
+const vc=document.getElementById('vcard');addEventListener('scroll',()=>{const k=Math.min(1,scrollY/700);document.getElementById('vid').style.transform=`scale(${1.04+k*.12})`},{passive:true});
+// project hover video
+document.querySelectorAll('.cd').forEach(c=>{const v=c.querySelector('video');if(!v)return;c.addEventListener('mouseenter',()=>v.play());c.addEventListener('mouseleave',()=>v.pause())});
+// configurator
+const R={dj:{2:['DJ Set · Club','Sesión de 2 h de breaks y DnB. Ideal para salas y line-ups.'],4:['DJ Set · Extendido','4 h de viaje musical: de breaks a techno, leyendo la pista.'],8:['All night long','Toda la noche en cabina. Para fiestas que no quieren acabar.']},
+ fiesta:{2:['Showcase','Un formato corto con concepto propio y cartel.'],4:['Fiesta completa','Line-up, cartel y noche entera producida por Jordi.'],8:['Producción · 12 h','El formato Amagatall: dos rooms, colectivos y +12 h non-stop.']},
+ colab:{2:['Room invitada','Tu colectivo, un slot en una room de Amagatall.'],4:['Room compartida','Medio line-up de tu colectivo en Black Box u Overdrive.'],8:['Room propia','Una room entera para tu colectivo durante toda la fiesta.']}};
+let s1='dj',s2='2';function cfg(){const r=R[s1][s2],t=document.getElementById('rt'),d=document.getElementById('rd');t.style.opacity=d.style.opacity=0;setTimeout(()=>{t.textContent=r[0];d.textContent=r[1];t.style.opacity=d.style.opacity=1},200)}
+[['sg1',v=>s1=v],['sg2',v=>s2=v]].forEach(([id,set])=>document.querySelectorAll('#'+id+' button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#'+id+' button').forEach(x=>x.classList.remove('on'));b.classList.add('on');set(b.dataset.v);cfg()}));
+// countdown
+const tg=new Date('2026-12-31T23:00:00+01:00').getTime();function cd(){const d=Math.max(0,tg-Date.now());const v=[d/864e5,d/36e5%24,d/6e4%60,d/1e3%60].map(x=>String(Math.floor(x)).padStart(2,'0'));document.querySelectorAll('#cdn b').forEach((b,i)=>b.textContent=v[i])}cd();setInterval(cd,1000);
+// FAQ
+document.querySelectorAll('.qa button').forEach(b=>b.onclick=()=>{const q=b.parentElement,on=q.classList.contains('on');document.querySelectorAll('.qa').forEach(x=>x.classList.remove('on'));if(!on)q.classList.add('on')});
+// gallery drag
+const gt=document.getElementById('gt');let dn=0,sx=0,sl=0,mv=0;
+gt.addEventListener('pointerdown',e=>{dn=1;mv=0;sx=e.clientX;sl=gt.scrollLeft;gt.classList.add('dr')});
+addEventListener('pointermove',e=>{if(!dn)return;mv=Math.max(mv,Math.abs(e.clientX-sx));gt.scrollLeft=sl-(e.clientX-sx)});
+addEventListener('pointerup',e=>{if(!dn)return;dn=0;gt.classList.remove('dr');if(mv<6){const it=e.target.closest('.gi');if(it&&it.querySelector('img'))openL(it.querySelector('img').src)}});
+gt.addEventListener('scroll',()=>{const m=gt.scrollWidth-gt.clientWidth;document.getElementById('gb').style.width=(20+80*(m?gt.scrollLeft/m:0))+'%'});
+document.getElementById('gn').onclick=()=>gt.scrollBy({left:420,behavior:'smooth'});document.getElementById('gp').onclick=()=>gt.scrollBy({left:-420,behavior:'smooth'});
+// lightbox
+const lb=document.getElementById('lbx'),li=document.getElementById('li');const L=[...gt.querySelectorAll('img')].map(i=>i.src);let k=0;
+function openL(s){k=L.indexOf(s);li.src=s;lb.classList.add('on')}function go(d){k=(k+d+L.length)%L.length;li.style.opacity=0;setTimeout(()=>{li.src=L[k];li.style.opacity=1},150)}
+document.getElementById('ln').onclick=()=>go(1);document.getElementById('lp').onclick=()=>go(-1);document.getElementById('lx').onclick=()=>lb.classList.remove('on');
+lb.onclick=e=>{if(e.target===lb)lb.classList.remove('on')};addEventListener('keydown',e=>{if(!lb.classList.contains('on'))return;if(e.key==='Escape')lb.classList.remove('on');if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)});
+
+// SOUND (generative breakbeat)
+let ac,an,ms,pl=false,nt=0,stp=0,tid,nb;const S=60/134/4;
+const K=[1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0],SN=[0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,1],BL=[36,0,0,36,0,0,39,0,0,36,0,0,41,0,39,0];
+const kk=t=>{const o=ac.createOscillator(),g=ac.createGain();o.frequency.setValueAtTime(140,t);o.frequency.exponentialRampToValueAtTime(42,t+.12);g.gain.setValueAtTime(1,t);g.gain.exponentialRampToValueAtTime(.001,t+.4);o.connect(g).connect(ms);o.start(t);o.stop(t+.42)};
+const nz=(t,ty,f,v,d)=>{const s=ac.createBufferSource();s.buffer=nb;const fl=ac.createBiquadFilter();fl.type=ty;fl.frequency.value=f;const g=ac.createGain();g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+d);s.connect(fl).connect(g).connect(ms);s.start(t);s.stop(t+d+.02)};
+const bs=(t,n)=>{const o=ac.createOscillator(),f=ac.createBiquadFilter(),g=ac.createGain();o.type='sawtooth';o.frequency.value=440*2**((n-69)/12);f.type='lowpass';f.frequency.setValueAtTime(900,t);f.frequency.exponentialRampToValueAtTime(140,t+.22);f.Q.value=8;g.gain.setValueAtTime(.3,t);g.gain.exponentialRampToValueAtTime(.001,t+.3);o.connect(f).connect(g).connect(ms);o.start(t);o.stop(t+.32)};
+function sc(){while(nt<ac.currentTime+.12){const i=stp%16;if(K[i])kk(nt);if(SN[i])nz(nt,'bandpass',1900,.55,.18);nz(nt,'highpass',8000,i%4==2?.15:.06,i%4==2?.09:.04);if(BL[i])bs(nt,BL[i]);nt+=S;stp++}tid=setTimeout(sc,25)}
+const snd=document.getElementById('snd'),bars=[...document.querySelectorAll('#eq i')];let fd;
+snd.onclick=async()=>{if(!ac){ac=new AudioContext();ms=ac.createGain();ms.gain.value=.7;an=ac.createAnalyser();an.fftSize=256;ms.connect(an);an.connect(ac.destination);nb=ac.createBuffer(1,ac.sampleRate*.5,ac.sampleRate);const d=nb.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;fd=new Uint8Array(an.frequencyBinCount)}
+ if(!pl){await ac.resume();nt=ac.currentTime+.05;sc();pl=true;document.getElementById('pi').textContent='❚❚';document.getElementById('sl').textContent='Sonando'}else{clearTimeout(tid);pl=false;document.getElementById('pi').textContent='▶';document.getElementById('sl').textContent='Escuchar el sonido'}};
+(function lp(){requestAnimationFrame(lp);if(pl){an.getByteFrequencyData(fd);bars.forEach((b,i)=>b.style.height=(3+fd[i*6+2]/255*11)+'px');document.getElementById('vid').style.filter=`brightness(${.9+fd[2]/255*.4})`}else bars.forEach(b=>b.style.height='3px')})();
+</script>
+</body>
+</html>
